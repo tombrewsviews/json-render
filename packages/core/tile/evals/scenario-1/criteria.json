@@ -1,0 +1,46 @@
+{
+  "context": "This criteria evaluates how effectively the engineer uses @json-render/core package APIs to implement a conditional dashboard system. The evaluation focuses exclusively on correct usage of visibility conditions, actions, validation, and catalog creation features provided by the package.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Catalog Creation",
+      "description": "Uses createCatalog function to define component catalog with proper Zod schemas for each component's props (AdminPanel, PremiumSection, Button, EmailInput)",
+      "max_score": 15
+    },
+    {
+      "name": "Complex Visibility Logic",
+      "description": "Implements admin panel visibility using 'and' and 'or' logic expressions combined with auth condition ({ auth: 'signedIn' }) and comparison operators ({ eq } for role check, { gte } for permission level)",
+      "max_score": 25
+    },
+    {
+      "name": "Dynamic Path Comparison",
+      "description": "Implements premium section visibility using { gte } comparison with two dynamic path references ({ path: '/user/subscriptionTier' } and { path: '/config/premiumTierRequired' })",
+      "max_score": 15
+    },
+    {
+      "name": "Action Parameter Resolution",
+      "description": "Configures delete button action with dynamic parameter using { path: '/user/id' } in the action params object",
+      "max_score": 10
+    },
+    {
+      "name": "String Interpolation",
+      "description": "Uses string interpolation syntax ${/user/name} or ${/path} in the confirmation message property of the action",
+      "max_score": 10
+    },
+    {
+      "name": "Action Callbacks",
+      "description": "Implements onSuccess callback with navigate property set to '/logout' and onError callback with set property containing error path mapping",
+      "max_score": 10
+    },
+    {
+      "name": "Conditional Validation",
+      "description": "Configures email validation with enabled property containing a logic expression that references { path: '/ui/changeEmail' }",
+      "max_score": 10
+    },
+    {
+      "name": "Validation Functions",
+      "description": "Uses built-in validation functions (required and email) in the checks array of the validation config",
+      "max_score": 5
+    }
+  ]
+}

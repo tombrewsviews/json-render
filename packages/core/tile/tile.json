@@ -1,0 +1,8 @@
+{
+  "name": "tomparandyk/json-render-core",
+  "version": "0.2.0",
+  "docs": "docs/index.md",
+  "describes": "pkg:npm/%40json-render/core@0.2.0",
+  "summary": "Framework-agnostic library for safe, type-safe, and guardrailed AI-driven UI generation with Zod schema validation.",
+  "private": true
+}
