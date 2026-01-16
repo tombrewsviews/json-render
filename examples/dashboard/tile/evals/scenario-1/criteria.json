@@ -1,0 +1,51 @@
+{
+  "context": "This evaluation assesses proficiency in using the @json-render/core and @json-render/react packages to build dashboard configurations with advanced features including complex visibility conditions, action workflows with confirmation dialogs, conditional validation, and data binding.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Catalog Creation",
+      "description": "Uses createCatalog() from @json-render/core to define components with Zod schemas and hasChildren flags, and declares available actions",
+      "max_score": "10"
+    },
+    {
+      "name": "Complex Visibility Logic",
+      "description": "Implements visibility conditions using nested logic expressions (and, or, not operators), comparison operators (eq, gt), path-based conditions ({ path: '...' }), and auth conditions ({ auth: 'signedIn' })",
+      "max_score": "20"
+    },
+    {
+      "name": "Action Confirmation Dialogs",
+      "description": "Defines actions with confirm property containing title, message with string interpolation (e.g., '${/order/amount}'), and variant for dialog styling",
+      "max_score": "15"
+    },
+    {
+      "name": "Action Success Callbacks",
+      "description": "Implements onSuccess callbacks that update data paths using set property (e.g., { set: { '/order/status': 'refunded' } })",
+      "max_score": "10"
+    },
+    {
+      "name": "Action Error Callbacks",
+      "description": "Implements onError callbacks that capture and display error messages using $error.message token (e.g., { set: { '/ui/errorMessage': '$error.message' } })",
+      "max_score": "10"
+    },
+    {
+      "name": "Validation Checks",
+      "description": "Configures validation checks array with built-in validation functions (required, minLength) including fn, args, and message properties",
+      "max_score": "10"
+    },
+    {
+      "name": "Conditional Validation",
+      "description": "Uses enabled property on validation config with logic expressions to make validation conditional based on data path values",
+      "max_score": "10"
+    },
+    {
+      "name": "Data Path Binding",
+      "description": "Uses DynamicValue pattern with { path: '...' } syntax to bind component properties to data model paths (e.g., valuePath, or dynamic props)",
+      "max_score": "10"
+    },
+    {
+      "name": "Component Registry",
+      "description": "Creates component registry mapping component types to React components that accept element, children, and onAction props from @json-render/react",
+      "max_score": "5"
+    }
+  ]
+}

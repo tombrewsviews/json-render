@@ -1,0 +1,8 @@
+{
+  "name": "tomparandyk/example-dashboard",
+  "version": "0.1.0",
+  "docs": "docs/index.md",
+  "describes": "pkg:npm/example-dashboard@0.1.0",
+  "summary": "Example dashboard application demonstrating json-render library capabilities for AI-generated UI components",
+  "private": true
+}
