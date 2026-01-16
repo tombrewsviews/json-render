@@ -1,0 +1,8 @@
+{
+  "name": "tomparandyk/repo-typescript-config",
+  "version": "0.0.1",
+  "docs": "docs/index.md",
+  "describes": "pkg:npm/%40repo/typescript-config@0.0.0",
+  "summary": "Shared TypeScript configuration files for the json-render monorepo",
+  "private": true
+}

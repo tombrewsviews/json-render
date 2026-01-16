@@ -1,0 +1,46 @@
+{
+  "context": "This evaluation assesses how well the engineer uses the @repo/typescript-config package to create appropriate TypeScript configurations for different project types in a monorepo. The focus is on correctly extending the provided configuration presets (base.json, nextjs.json, react-library.json) and understanding which preset to use for each project type.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Backend extends base.json",
+      "description": "The tsconfig.backend.json file uses the 'extends' field to properly extend '@repo/typescript-config/base.json' (or './node_modules/@repo/typescript-config/base.json' or similar valid path)",
+      "max_score": 20
+    },
+    {
+      "name": "Backend compiler options",
+      "description": "The tsconfig.backend.json includes compilerOptions with outDir set to './dist' and rootDir set to './src'",
+      "max_score": 10
+    },
+    {
+      "name": "Backend Node.js types",
+      "description": "The tsconfig.backend.json includes types for Node.js, either through compilerOptions.types array including 'node', or through a types field, or by ensuring @types/node is available",
+      "max_score": 5
+    },
+    {
+      "name": "Next.js extends nextjs.json",
+      "description": "The tsconfig.next.json file uses the 'extends' field to properly extend '@repo/typescript-config/nextjs.json' (or './node_modules/@repo/typescript-config/nextjs.json' or similar valid path)",
+      "max_score": 20
+    },
+    {
+      "name": "Next.js includes src",
+      "description": "The tsconfig.next.json includes an 'include' array that contains './src' or 'src' or similar path to include the source directory",
+      "max_score": 10
+    },
+    {
+      "name": "Next.js excludes node_modules",
+      "description": "The tsconfig.next.json includes an 'exclude' array that contains 'node_modules' to exclude dependencies from compilation",
+      "max_score": 5
+    },
+    {
+      "name": "Library extends react-library.json",
+      "description": "The tsconfig.library.json file uses the 'extends' field to properly extend '@repo/typescript-config/react-library.json' (or './node_modules/@repo/typescript-config/react-library.json' or similar valid path)",
+      "max_score": 20
+    },
+    {
+      "name": "Library compiler options",
+      "description": "The tsconfig.library.json includes compilerOptions with outDir set to './lib' and rootDir set to './src'",
+      "max_score": 10
+    }
+  ]
+}
