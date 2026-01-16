@@ -1,0 +1,56 @@
+{
+  "context": "This criteria evaluates how effectively the engineer uses @json-render/core and @json-render/react to implement a settings form with conditional visibility, action lifecycle management, cross-field validation, and dynamic data binding. The focus is entirely on proper usage of the json-render API, not on code organization or style.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Catalog Creation",
+      "description": "Uses createCatalog from @json-render/core to define a component catalog with all required form components (select/dropdown, text input, toggle/checkbox, button) and registers the two required actions (save_settings, delete_account) with proper descriptions.",
+      "max_score": 10
+    },
+    {
+      "name": "Conditional Visibility Logic",
+      "description": "Correctly implements visibility conditions using logic expressions. Notification preferences visible when accountType equals 'personal' using { eq: [{ path: '/form/accountType' }, 'personal'] }. Business information visible when accountType equals 'business'. Password section uses { auth: 'signedIn' }. Delete button visible only for business accounts.",
+      "max_score": 15
+    },
+    {
+      "name": "Data Binding",
+      "description": "All form fields correctly use valuePath property to bind to the specified data model paths under /form (e.g., valuePath: '/form/email', valuePath: '/form/accountType'). Status and error messages bound to /ui/statusMessage and /ui/errorMessage paths.",
+      "max_score": 15
+    },
+    {
+      "name": "Email Validation",
+      "description": "Email field uses the built-in 'email' validation function from the validation system with a validation check like { fn: 'email', message: '...' }. Validation is set to trigger on blur using validateOn: 'blur'.",
+      "max_score": 7
+    },
+    {
+      "name": "Cross-Field Validation",
+      "description": "Confirm password field uses the 'matches' validator to compare against the new password field, with args: { other: { path: '/form/newPassword' } }, properly demonstrating cross-field validation with dynamic value resolution.",
+      "max_score": 10
+    },
+    {
+      "name": "Conditional Validation",
+      "description": "Business fields (companyName, taxId) and password fields (newPassword, confirmPassword) use validation checks that are conditionally enabled based on visibility. Uses required, minLength, maxLength, or numeric validators for tax ID (9 digits) and password length (8+ chars).",
+      "max_score": 10
+    },
+    {
+      "name": "Action Parameters",
+      "description": "Save settings action includes dynamic parameters that reference form data paths using DynamicValue pattern (e.g., params: { email: { path: '/form/email' }, accountType: { path: '/form/accountType' }, ... }). Delete account action includes email parameter with dynamic value.",
+      "max_score": 9
+    },
+    {
+      "name": "Confirmation Dialogs",
+      "description": "Save button action includes a confirm property with string interpolation referencing the email value (e.g., message: 'Save settings for ${/form/email}?'). Delete button has confirm with variant: 'danger', title: 'Delete Account', and interpolated message about permanent deletion.",
+      "max_score": 10
+    },
+    {
+      "name": "Success Handlers",
+      "description": "Save action has onSuccess handler that uses the 'set' operation to update /ui/statusMessage with success text. Delete action has onSuccess handler that uses 'navigate' to redirect to '/goodbye' path, demonstrating both set and navigate callback patterns.",
+      "max_score": 8
+    },
+    {
+      "name": "Error Handlers",
+      "description": "Both actions include onError handlers that use the 'set' operation to update /ui/errorMessage. Error handlers use $error.message placeholder for string interpolation of the actual error message.",
+      "max_score": 6
+    }
+  ]
+}
